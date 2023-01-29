@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
-  firstname: { type: "string", required: true },
-  middlename: { type: "string" },
-  lastname: { type: "string", required: true },
-  phone: { type: "number", required: true },
+  firstname: { type: String, required: true },
+  middlename: { type: String },
+  lastname: { type: String, required: true },
+  phone: { type: Number, required: true },
   email: { 
     type: "string", 
-    required: 'email address is required',
-    validate: [validateEmail, 'please fill a valid email address'],
+    required: [true, 'email address is required'],
+    // validate: [validateEmail, 'please fill a valid email address'],
+    trim: true, 
     unique: true
 },
 password : { type: "string", required: true},
